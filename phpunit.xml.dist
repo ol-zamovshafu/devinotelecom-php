@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="JetSms Php Test Suite">
+        <testsuite name="Devinotelecom Php Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

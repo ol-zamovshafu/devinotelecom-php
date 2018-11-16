@@ -1,11 +1,11 @@
 <?php
 
-namespace Erdemkeren\JetSms\Test;
+namespace Zamovshafu\Devinotelecom\Test;
 
 use Mockery as M;
 use PHPUnit\Framework\TestCase;
-use Erdemkeren\JetSms\ShortMessage;
-use Erdemkeren\JetSms\ShortMessageFactory;
+use Zamovshafu\Devinotelecom\ShortMessage;
+use Zamovshafu\Devinotelecom\ShortMessageFactory;
 
 class ShortMessageFactoryTest extends TestCase
 {
@@ -21,7 +21,7 @@ class ShortMessageFactoryTest extends TestCase
         parent::tearDown();
     }
 
-    public function test_it_creates_new_short_messages()
+    public function testItCreatesNewShortMessages()
     {
         $shortMessageFactory = new ShortMessageFactory();
 

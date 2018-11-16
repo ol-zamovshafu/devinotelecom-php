@@ -1,10 +1,10 @@
 <?php
 
-namespace Erdemkeren\JetSms\Test;
+namespace Zamovshafu\Devinotelecom\Test;
 
 use Mockery as M;
 use PHPUnit\Framework\TestCase;
-use Erdemkeren\JetSms\ShortMessage;
+use Zamovshafu\Devinotelecom\ShortMessage;
 
 class ShortMessageTest extends TestCase
 {
@@ -20,7 +20,7 @@ class ShortMessageTest extends TestCase
         parent::tearDown();
     }
 
-    public function test_it_constructs_with_single_recipient()
+    public function testItConstructsWithSingleRecipient()
     {
         $shortMessage = new ShortMessage('recipient', 'message');
 
@@ -29,7 +29,7 @@ class ShortMessageTest extends TestCase
         $this->assertEquals('message', $shortMessage->body());
     }
 
-    public function test_it_constructs_with_multiple_recipients()
+    public function testItConstructsWithMultipleRecipients()
     {
         $shortMessage = new ShortMessage(['recipient1', 'recipient2'], 'message');
 
@@ -39,33 +39,13 @@ class ShortMessageTest extends TestCase
         $this->assertEquals('message', $shortMessage->body());
     }
 
-    public function test_it_can_be_casted_to_array()
+    public function testItCanBeCastedToArray()
     {
         $shortMessage = new ShortMessage(['recipient1', 'recipient2'], 'message');
 
         $this->assertEquals([
-            'Msisdns' => 'recipient1|recipient2',
-            'Messages' => 'message',
+            'DestinationAddresses' => ['recipient1', 'recipient2'],
+            'Data' => 'message',
         ], $shortMessage->toArray());
-    }
-
-    public function test_it_can_be_casted_to_single_message_xml()
-    {
-        $shortMessage = new ShortMessage(['recipient1', 'recipient2'], 'message');
-
-        $this->assertEquals(
-            '<text>message</text><message><gsmnos>recipient1,recipient2</gsmnos></message>',
-            $shortMessage->toSingleMessageXml()
-        );
-    }
-
-    public function test_it_can_be_casted_to_multiple_message_xml()
-    {
-        $shortMessage = new ShortMessage(['recipient1', 'recipient2'], 'message');
-
-        $this->assertEquals(
-            '<message><gsmno>recipient1,recipient2</gsmno><text>message</text></message>',
-            $shortMessage->toMultipleMessagesXml()
-        );
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Erdemkeren\JetSms;
+namespace Zamovshafu\Devinotelecom;
 
 /**
  * Class ShortMessage.
@@ -84,34 +84,8 @@ class ShortMessage
     public function toArray()
     {
         return array_filter([
-            'Msisdns'        => $this->receiversString('|'),
-            'Messages'       => $this->body(),
+            'DestinationAddresses' => $this->receivers(),
+            'Data' => $this->body(),
         ]);
-    }
-
-    /**
-     * Get the single message xml representation of the short message.
-     *
-     * @return string
-     */
-    public function toSingleMessageXml()
-    {
-        $text = str_replace("'", "&apos;", htmlentities($this->body()));
-        $gsmNo = $this->receiversString(',');
-
-        return "<text>{$text}</text><message><gsmnos>{$gsmNo}</gsmnos></message>";
-    }
-
-    /**
-     * Get the multiple messages xml representation of the short message.
-     *
-     * @return string
-     */
-    public function toMultipleMessagesXml()
-    {
-        $text = str_replace("'", "&apos;", htmlentities($this->body()));
-        $gsmNo = $this->receiversString(',');
-
-        return "<message><gsmno>{$gsmNo}</gsmno><text>{$text}</text></message>";
     }
 }

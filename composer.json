@@ -1,12 +1,16 @@
 {
-    "name": "erdemkeren/jet-sms-php",
-    "description": "A PHP client library for jet-sms api",
-    "homepage": "https://github.com/laravel-notification-channels/jet-sms",
+    "name": "ol-zamovshafu/devinotelecom-php",
+    "description": "A PHP client library for Devinotelecom REST API",
+    "homepage": "https://github.com/ol-zamovshafu/devinotelecom-laravel",
     "license": "MIT",
     "authors": [
         {
             "name": "Hilmi Erdem KEREN",
             "email": "erdemkeren@gmail.com"
+        },
+        {
+            "name": "Oleg Lobanov",
+            "email": "oleg.lobanov@zamovshafu.com.ua"
         }
     ],
     "require": {
@@ -19,12 +23,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Erdemkeren\\JetSms\\": "src"
+            "Zamovshafu\\Devinotelecom\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Erdemkeren\\JetSms\\Test\\": "tests"
+            "Zamovshafu\\Devinotelecom\\Test\\": "tests"
         }
     },
     "scripts": {

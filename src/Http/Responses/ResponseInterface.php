@@ -1,11 +1,11 @@
 <?php
 
-namespace Erdemkeren\JetSms\Http\Responses;
+namespace Zamovshafu\Devinotelecom\Http\Responses;
 
 /**
- * Interface JetSmsResponseInterface.
+ * Interface ResponseInterface.
  */
-interface JetSmsResponseInterface
+interface ResponseInterface
 {
     /**
      * Determine if the operation was successful or not.
